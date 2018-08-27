@@ -3,6 +3,10 @@ cmake_minimum_required(VERSION 3.0)
 project(libuv)
 enable_testing()
 
+if(ANDROID)
+  set(CMAKE_SYSTEM_NAME "Android")
+endif()
+
 if(MSVC)
   list(APPEND uv_cflags /W4)
 elseif(CMAKE_C_COMPILER_ID MATCHES "AppleClang|Clang|GNU")
